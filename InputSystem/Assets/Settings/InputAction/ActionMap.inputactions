@@ -13,13 +13,22 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "WASD",
+                    "type": "Button",
+                    "id": "378aa9cb-734f-463e-88c3-ff8d11d37ac6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
                     "name": "",
-                    "id": "7fdce84d-42ec-49ec-85be-7ba180e8f747",
-                    "path": "<Keyboard>/a",
+                    "id": "7a3ccce8-b9ab-48d2-8f05-c2f561e48fb6",
+                    "path": "<Gamepad>/leftStickPress",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -29,34 +38,45 @@
                 },
                 {
                     "name": "",
-                    "id": "710f1abb-24ee-4e43-8d91-bc775770c253",
+                    "id": "4b5c7dd0-798e-43fc-855e-9d35620ec6a0",
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "WASD",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "2686b3bf-c0a5-426c-b464-33e6a65c334c",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "db899ff9-5d15-4233-afa8-354c2def8cf4",
+                    "id": "0d3cc25f-e552-418b-9bf6-ad325c199472",
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Movement",
+                    "action": "WASD",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "95c38f0e-a04f-4c11-a14e-4c007a9f437b",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WASD",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d521bcfc-3d85-456b-9b08-2bc77a847ae8",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WASD",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -35,13 +35,22 @@ public partial class @ActionMap : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""WASD"",
+                    ""type"": ""Button"",
+                    ""id"": ""378aa9cb-734f-463e-88c3-ff8d11d37ac6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""7fdce84d-42ec-49ec-85be-7ba180e8f747"",
-                    ""path"": ""<Keyboard>/a"",
+                    ""id"": ""7a3ccce8-b9ab-48d2-8f05-c2f561e48fb6"",
+                    ""path"": ""<Gamepad>/leftStickPress"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -51,34 +60,45 @@ public partial class @ActionMap : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""710f1abb-24ee-4e43-8d91-bc775770c253"",
+                    ""id"": ""4b5c7dd0-798e-43fc-855e-9d35620ec6a0"",
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""WASD"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""2686b3bf-c0a5-426c-b464-33e6a65c334c"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Movement"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""db899ff9-5d15-4233-afa8-354c2def8cf4"",
+                    ""id"": ""0d3cc25f-e552-418b-9bf6-ad325c199472"",
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""WASD"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""95c38f0e-a04f-4c11-a14e-4c007a9f437b"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WASD"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d521bcfc-3d85-456b-9b08-2bc77a847ae8"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""WASD"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -90,6 +110,7 @@ public partial class @ActionMap : IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
+        m_Player_WASD = m_Player.FindAction("WASD", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -150,11 +171,13 @@ public partial class @ActionMap : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Movement;
+    private readonly InputAction m_Player_WASD;
     public struct PlayerActions
     {
         private @ActionMap m_Wrapper;
         public PlayerActions(@ActionMap wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
+        public InputAction @WASD => m_Wrapper.m_Player_WASD;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -167,6 +190,9 @@ public partial class @ActionMap : IInputActionCollection2, IDisposable
                 @Movement.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
+                @WASD.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWASD;
+                @WASD.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWASD;
+                @WASD.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWASD;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -174,6 +200,9 @@ public partial class @ActionMap : IInputActionCollection2, IDisposable
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
+                @WASD.started += instance.OnWASD;
+                @WASD.performed += instance.OnWASD;
+                @WASD.canceled += instance.OnWASD;
             }
         }
     }
@@ -181,5 +210,6 @@ public partial class @ActionMap : IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnMovement(InputAction.CallbackContext context);
+        void OnWASD(InputAction.CallbackContext context);
     }
 }

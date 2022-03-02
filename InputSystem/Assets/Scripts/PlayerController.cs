@@ -10,6 +10,14 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         var gamePad = Gamepad.current;
+        if(gamePad == null)
+        {
+            return;
+        }
+        else
+        {
+            Debug.Log("Game Pad를 가지고있습니다.");
+        }
         Vector2 move = gamePad.leftStick.ReadValue();
 
         Debug.Log("move : " + move);
