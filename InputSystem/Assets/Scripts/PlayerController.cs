@@ -1,25 +1,43 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, ActionMap.IPlayerActions
 {
-    // Update is called once per frame
-    void Update()
-    {
-        var gamePad = Gamepad.current;
-        if(gamePad == null)
-        {
-            return;
-        }
-        else
-        {
-            Debug.Log("Game Pad를 가지고있습니다.");
-        }
-        Vector2 move = gamePad.leftStick.ReadValue();
+    Vector3 moveVec;
+    private ActionMap _inputActions;
 
-        Debug.Log("move : " + move);
+    private void OnEnable()
+    {
+        if(_inputActions == null)
+        {
+            _inputActions = new ActionMap();
+        }
+        _inputActions.Player.SetCallbacks(this);
+        _inputActions.Player.Enable();
+    }
+
+    private void OnDisable()
+    {
+        _inputActions.Player.Disable();
+    }
+
+    public void OnJump()
+    {
+        Debug.Log("OnJump Call!!");
+    }
+
+    public void OnMovement(InputAction.CallbackContext context)
+    {
+        Debug.Log("Move Call!!");
+    }
+
+    public void OnWASD(InputAction.CallbackContext context)
+    {
+        Debug.Log("WASD Call!!");
+    }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        Debug.Log("Jump Call!!");
     }
 }

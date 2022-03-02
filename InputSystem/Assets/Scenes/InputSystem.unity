@@ -411,7 +411,6 @@ GameObject:
   - component: {fileID: 1240650613}
   - component: {fileID: 1240650612}
   - component: {fileID: 1240650616}
-  - component: {fileID: 1240650611}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -419,44 +418,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1240650611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1240650610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 22678b2b191e44856975bb53b0423fa4, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 2067888060}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 013c5603-d948-4ad6-9c7d-972832d46829
-    m_ActionName: Player/Movement
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 378aa9cb-734f-463e-88c3-ff8d11d37ac6
-    m_ActionName: Player/WASD[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 963194227}
 --- !u!65 &1240650612
 BoxCollider:
   m_ObjectHideFlags: 0
